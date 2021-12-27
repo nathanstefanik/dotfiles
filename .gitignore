@@ -8,3 +8,5 @@
 !/X11/
 !pavucontrol.ini
 !/mpv/
+!/mpd/
+!/ncmpcpp/
