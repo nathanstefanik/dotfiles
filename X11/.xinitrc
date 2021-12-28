@@ -1,3 +1,3 @@
 udiskie &
 feh --randomize --bg-max ~/Pictures/*
-exec dwm
+exec awesome

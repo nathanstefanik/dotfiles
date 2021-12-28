@@ -1,5 +1,6 @@
 /*
 !/.gitignore
+!/dwm/
 !/kitty/
 !/nvim/
 !/i3/
