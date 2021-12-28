@@ -1,2 +1,3 @@
 udiskie &
-exec awesome
+feh --randomize --bg-max ~/Pictures/*
+exec i3

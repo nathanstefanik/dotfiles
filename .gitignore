@@ -2,6 +2,8 @@
 !/.gitignore
 !/kitty/
 !/nvim/
+!/i3/
+!/polybar/
 !/rofi/
 !/thunar/
 !/X11/
