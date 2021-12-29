@@ -1,4 +1,5 @@
 /*
+!/newsboat/
 !/.gitignore
 !/dwm/
 !/dmenu/
@@ -9,7 +10,6 @@
 !/rofi/
 !/thunar/
 !/X11/
-!pavucontrol.ini
 !/mpv/
 !/mpd/
 !/ncmpcpp/

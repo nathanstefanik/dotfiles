@@ -66,27 +66,31 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[]     = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]      = { "kitty", NULL };
 static const char *browsercmd[]   = { "firefox", NULL };
+static const char *voldown[]	  = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%", NULL};
+static const char *volup[]	      = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%", NULL};
+static const char *volmute[]	  = { "pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle", NULL};
 
 #include "patches/shift-tools.c"
+#include <X11/XF86keysym.h>
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-  { MODKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
+  { ALTKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
-	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
-	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
+	{ ALTKEY,                       XK_Tab,      focusstack,     {.i = +1 } },
+	{ ALTKEY|ShiftMask,             XK_Tab,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
-//	{ MODKEY,                       XK_Tab,    view,           {0} },
+//{ MODKEY,                       XK_Tab,    view,           {0} },
   { MODKEY,                       XK_Tab,    shiftview,      {.i = +1 } },
   { MODKEY|ShiftMask,             XK_Tab,    shiftview,      {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-//	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
+//{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
   { MODKEY,                       XK_w,      spawn,          {.v = browsercmd } },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
@@ -100,6 +104,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
+	{ 0,                            XF86XK_AudioLowerVolume, spawn, {.v = voldown } },
+	{ 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = volup } },
+	{ 0,                            XF86XK_AudioMute, spawn, {.v = volmute } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
