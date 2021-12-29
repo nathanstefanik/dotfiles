@@ -1,6 +1,7 @@
 /*
 !/.gitignore
 !/dwm/
+!/dmenu/
 !/kitty/
 !/nvim/
 !/i3/
