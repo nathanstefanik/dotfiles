@@ -71,6 +71,7 @@ static const char *volup[]	      = { "pactl", "set-sink-volume", "@DEFAULT_SINK@
 static const char *volmute[]	  = { "pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle", NULL};
 
 #include "patches/shift-tools.c"
+#include "patches/push.c"
 #include <X11/XF86keysym.h>
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -78,8 +79,10 @@ static Key keys[] = {
   { ALTKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
-	{ ALTKEY,                       XK_Tab,      focusstack,     {.i = +1 } },
-	{ ALTKEY|ShiftMask,             XK_Tab,      focusstack,     {.i = -1 } },
+	{ ALTKEY,                       XK_Tab,    focusstack,     {.i = +1 } },
+	{ ALTKEY|ShiftMask,             XK_Tab,    focusstack,     {.i = -1 } },
+  { MODKEY,                       XK_j,      pushdown,       {0} },
+  { MODKEY,                       XK_k,      pushup,         {0} },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
