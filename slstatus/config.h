@@ -65,10 +65,10 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-  { netspeed_rx,  "[Down:%s] ",   "wlp37s0" },
-  { netspeed_tx,  "[Up:%s] ",     "wlp37s0" }, 
-  { run_command,  "[Vol:%s] ",    "pactl list sinks | grep 'Volume: front-left: ' | awk '{print $5}'" },
-  { cpu_perc,     "[CPU%s] ",     NULL },
-  { ram_perc,     "[RAM%s] ",     NULL },
-	{ datetime,     "%s",           "%a %b %d %r" },
+  { netspeed_rx,  " [Down %sB/s] ",   "wlp37s0" },
+  { netspeed_tx,  "[Up %sB/s] ",     "wlp37s0" }, 
+  { run_command,  "[Vol %s] ",    "pactl list sinks | grep 'Volume: front-left: ' | awk '{print $5}'" },
+  { cpu_perc,     "[CPU %s%] ",     NULL },
+  { ram_perc,     "[RAM %s%] ",     NULL },
+	{ datetime,     "%s ",           "%a %b %d %r" },
 };
