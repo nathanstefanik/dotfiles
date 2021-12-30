@@ -66,16 +66,17 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[]     = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]      = { "kitty", NULL };
 static const char *browsercmd[]   = { "firefox", NULL };
-static const char *voldown[]	  = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%", NULL};
+static const char *voldown[]	    = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%", NULL};
 static const char *volup[]	      = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%", NULL};
-static const char *volmute[]	  = { "pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle", NULL};
+static const char *volmute[]	    = { "pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle", NULL};
+static const char *passcmd[]     = { "passmenu", NULL };
 
 #include "patches/shift-tools.c"
 #include "patches/push.c"
 #include <X11/XF86keysym.h>
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_p,      spawn,          {.v = passcmd } },
   { ALTKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
@@ -88,7 +89,6 @@ static Key keys[] = {
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
-//{ MODKEY,                       XK_Tab,    view,           {0} },
   { MODKEY,                       XK_Tab,    shiftview,      {.i = +1 } },
   { MODKEY|ShiftMask,             XK_Tab,    shiftview,      {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },

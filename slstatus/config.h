@@ -70,5 +70,5 @@ static const struct arg args[] = {
   { run_command,  "[Vol %s] ",    "pactl list sinks | grep 'Volume: front-left: ' | awk '{print $5}'" },
   { cpu_perc,     "[CPU %s%] ",     NULL },
   { ram_perc,     "[RAM %s%] ",     NULL },
-	{ datetime,     "%s ",           "%a %b %d %r" },
+	{ datetime,     "%s ",           "%a %b %d %R" },
 };
