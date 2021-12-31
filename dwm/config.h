@@ -78,7 +78,8 @@ static const char *browsercmd[]   = { "firefox", NULL };
 static const char *voldown[]	    = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%", NULL};
 static const char *volup[]	      = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%", NULL};
 static const char *volmute[]	    = { "pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle", NULL};
-static const char *passcmd[]     = { "passmenu", NULL };
+static const char *passcmd[]      = { "passmenu", NULL };
+static const char *mpvcmd[]       = { "mpvclip", NULL };
 
 #include "patches/shift-tools.c"
 #include "patches/push.c"
@@ -88,6 +89,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_p,      spawn,          {.v = passcmd } },
   { ALTKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+  { MODKEY,                       XK_v,      spawn,          {.v = mpvcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ ALTKEY,                       XK_Tab,    focusstack,     {.i = +1 } },
 	{ ALTKEY|ShiftMask,             XK_Tab,    focusstack,     {.i = -1 } },
