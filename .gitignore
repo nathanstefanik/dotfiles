@@ -3,6 +3,7 @@
 !/.gitignore
 !/dwm/
 !/dmenu/
+!/passmenu/
 !/kitty/
 !/slstatus/
 !/nvim/
