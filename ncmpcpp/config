@@ -1,14 +1,10 @@
 # vim: filetype=conf
 
-mpd_host = "localhost"
 ncmpcpp_directory = "~/.config/ncmpcpp"
+lyrics_directory = "~/.local/share/lyrics"
 mpd_music_dir = "~/Music"
 message_delay_time = "1"
-visualizer_data_source = "/tmp/mpd.fifo"
 visualizer_type = "spectrum"
-visualizer_in_stereo = "yes"
-visualizer_output_name = "my_fifo"
-visualizer_look = "+|"
 song_list_format = {$4%a - }{%t}|{$8%f$9}$R{$3(%l)$9}
 song_status_format = $b{{$8"%t"}} $3by {$4%a{ $3in $7%b{ (%y)}} $3}|{$8%f}
 song_library_format = {%n - }{%t}|{%f}

@@ -124,6 +124,9 @@ static Key keys[] = {
 	{ 0,                            XF86XK_AudioLowerVolume, spawn, {.v = voldown } },
 	{ 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = volup } },
 	{ 0,                            XF86XK_AudioMute, spawn, {.v = volmute } },
+  { 0,                            XF86XK_AudioPlay, spawn,   SHCMD("cplay") },
+  { 0,                            XF86XK_AudioPrev, spawn,   SHCMD("cmus-remote --prev") },
+  { 0,                            XF86XK_AudioNext, spawn,   SHCMD("cmus-remote --next") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
