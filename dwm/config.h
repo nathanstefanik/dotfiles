@@ -80,6 +80,7 @@ static const char *volup[]	      = { "pactl", "set-sink-volume", "@DEFAULT_SINK@
 static const char *volmute[]	    = { "pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle", NULL};
 static const char *passcmd[]      = { "passmenu", NULL };
 static const char *mpvcmd[]       = { "mpvclip", NULL };
+static const char *shutdowncmd[]  = { "shutdown", "-h", "now", NULL };
 
 #include "patches/shift-tools.c"
 #include "patches/push.c"
@@ -90,6 +91,7 @@ static Key keys[] = {
   { ALTKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
   { MODKEY,                       XK_v,      spawn,          {.v = mpvcmd } },
+  { MODKEY|ShiftMask,             XK_Escape, spawn,          {.v = shutdowncmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ ALTKEY,                       XK_Tab,    focusstack,     {.i = +1 } },
 	{ ALTKEY|ShiftMask,             XK_Tab,    focusstack,     {.i = -1 } },
@@ -103,6 +105,7 @@ static Key keys[] = {
   { MODKEY,                       XK_Tab,    shiftview,      {.i = +1 } },
   { MODKEY|ShiftMask,             XK_Tab,    shiftview,      {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
+  { ALTKEY,                       XK_F4,     killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 //{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
   { MODKEY,                       XK_w,      spawn,          {.v = browsercmd } },
