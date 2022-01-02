@@ -94,6 +94,7 @@ static Key keys[] = {
   { MODKEY,                       XK_v,      spawn,          {.v = mpvcmd } },
   { MODKEY|ShiftMask,             XK_Escape, spawn,          {.v = shutdowncmd } },
   { MODKEY,                       XK_w,      spawn,          {.v = browsercmd } },
+  { MODKEY,                       XK_c,      spawn,          SHCMD("codium") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ ALTKEY,                       XK_Tab,    focusstack,     {.i = +1 } },
 	{ ALTKEY|ShiftMask,             XK_Tab,    focusstack,     {.i = -1 } },
