@@ -1,0 +1,4 @@
+# Give gpu temp a stable path
+
+# AMD Radeon RX 6800
+ACTION=="add", SUBSYSTEM=="hwmon", ATTRS{vendor}=="0x1002", ATTRS{device}=="0x73bf", RUN+="/bin/sh -c 'ln -s /sys$devpath/temp1_input /dev/gpu_temp'"
