@@ -64,12 +64,12 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-  { run_command,  " [Artist: %s] ",    "cmus-remote -Q | grep 'tag artist ' | sed 's/tag//g;s/artist//g;s/[ \t]*//' | awk '{print}'" },
-  { run_command,  "[Track: %s] ",       "cmus-remote -Q | grep 'tag title ' | sed 's/tag//g;s/title//g;s/[ \t]*//' | awk '{print}'" },
-  { netspeed_rx,  "[Down %sB/s] ",    "wlp37s0" },
-  { netspeed_tx,  "[Up %sB/s] ",      "wlp37s0" }, 
-  { run_command,  "[Vol %s] ",        "pactl list sinks | grep 'Volume: front-left: ' | awk '{print $5}'" },
-  { temp,         "[CPU %s°C] ",        "/sys/class/hwmon/hwmon1/temp1_input" },
-  { temp,         "[GPU %s°C] ",        "/sys/class/hwmon/hwmon4/temp1_input" },
-	{ datetime,     "%s ",              "%a %b %d %R" },
+  { netspeed_rx,  "↓ %sB/s | ",     "wlp37s0" },
+  { netspeed_tx,  "↑ %sB/s | ",     "wlp37s0" }, 
+  { run_command,  " %s ",           "cmus-remote -Q | grep 'tag title ' | sed 's/tag//g;s/title//g;s/[ \t]*//' | awk '{print}'" },
+  { run_command,  "by %s | ",       "cmus-remote -Q | grep 'tag artist ' | sed 's/tag//g;s/artist//g;s/[ \t]*//' | awk '{print}'" },
+  { run_command,  "vol %s | ",      "pactl list sinks | grep 'Volume: front-left: ' | sed 's/%//g' | awk '{print $5}'" },
+  { temp,         "cpu %s°C | ",    "/sys/class/hwmon/hwmon1/temp1_input" },
+  { temp,         "gpu %s°C | ",    "/sys/class/hwmon/hwmon4/temp1_input" },
+	{ datetime,     "%s ",            "%a %b %d %R" },
 };
