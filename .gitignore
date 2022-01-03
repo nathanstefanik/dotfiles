@@ -1,8 +1,10 @@
 /*
 !/dmenu/
 /dmenu/*.o
+/dmenu/dmenu
 !/slstatus/
 /slstatus/*.o
+/slstatus/slstatus
 !/newsboat/config
 !/.gitignore
 !/scripts/
