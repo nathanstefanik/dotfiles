@@ -1,11 +1,12 @@
 /*
+!/dmenu/
+/dmenu/*.o
+!/slstatus/
+/slstatus/*.o
 !/newsboat/config
 !/.gitignore
-!/dwm/
-!/dmenu/
 !/scripts/
 !/kitty/
-!/slstatus/
 !/nvim/
 !/i3/
 !/rofi/
