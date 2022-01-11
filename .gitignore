@@ -9,7 +9,10 @@
 !/.gitignore
 !/scripts/
 !/kitty/
-!/nvim/
+!/nvim/general/
+!/nvim/init.vim
+!/nvim/vim-plug/
+!/nvim/keys/
 !/i3/
 !/rofi/
 !/thunar/
