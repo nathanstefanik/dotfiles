@@ -6,6 +6,8 @@ let g:UltiSnipsSnippetDirectories=['~/.config/nvim/UltiSnips']
 let g:vimtex_view_method = 'zathura'
 
 syntax enable                           " Enables syntax highlighing
+set colorcolumn=120                     " Ruler
+highlight ColorColumn ctermbg=0 guibg=lightgrey
 set hidden                              " Required to keep multiple buffers open multiple buffers
 set nowrap                              " Display long lines as just one line
 set encoding=utf-8                      " The encoding displayed

@@ -5,6 +5,8 @@ set notification-warning-fg     "#fabd2f" # bright:yellow
 set notification-bg             "#282828" # bg
 set notification-fg             "#b8bb26" # bright:green
 
+set selection-clipboard         clipboard
+
 set completion-bg               "#504945" # bg2
 set completion-fg               "#ebdbb2" # fg
 set completion-group-bg         "#3c3836" # bg1
