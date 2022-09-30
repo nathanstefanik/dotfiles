@@ -64,8 +64,8 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-  { netspeed_rx,  " ↓ %sB/s | ",    "enp38s0" },
-  { netspeed_tx,  "↑ %sB/s | ",     "enp38s0" }, 
+  { netspeed_rx,  " ↓ %sB/s | ",    "enp7s0" },
+  { netspeed_tx,  "↑ %sB/s | ",     "enp7s0" }, 
   { run_command,  "%s ",            "cmus-remote -Q | grep 'tag title ' | sed 's/tag//g;s/title//g;s/[ \t]*//' | awk '{print}'" },
   { run_command,  "by %s | ",       "cmus-remote -Q | grep 'tag artist ' | sed 's/tag//g;s/artist//g;s/[ \t]*//' | awk '{print}'" },
   { run_command,  "vol %s | ",      "pactl list sinks | grep 'Volume: front-left: ' | sed 's/%//g' | awk '{print $5}'" },
