@@ -2,54 +2,44 @@
 # ~/.bashrc
 #
 
+if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+startx ~/.config/X11/.xinitrc
+fi
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
-XDG_CONFIG_HOME=/home/euler/.config
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/euler/mambaforge/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/euler/mambaforge/etc/profile.d/conda.sh" ]; then
-        . "/home/euler/mambaforge/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/euler/mambaforge/bin:$PATH"
+# nnn configuration
+export NNN_BMS='c:~/.config;d:~/Downloads;g:~/Desktop/GT/;m:~/Music;q:~/Desktop/GT/Fall 22/CS4420;w:~/Desktop/GT/Fall 22/CS4641;e:~/Desktop/GT/Fall 22/CS4726;r:~/Desktop/GT/Fall 22/PHYS2212;t:~/Desktop/GT/Fall 22/research;h:/home/groth;z:/run/media/groth/ZARKEY;B:/run/media/groth/BOX'
+n ()
+{
+    # Block nesting of nnn in subshells
+    if [ -n $NNNLVL ] && [ "${NNNLVL:-0}" -ge 1 ]; then
+        echo "nnn is already running"
+        return
     fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
 
+    # The behaviour is set to cd on quit (nnn checks if NNN_TMPFILE is set)
+    # To cd on quit only on ^G, either remove the "export" as in:
+    #    NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+    #    (or, to a custom path: NNN_TMPFILE=/tmp/.lastd)
+    # or, export NNN_TMPFILE after nnn invocation
+    export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+    export EDITOR="nvim"
 
-# >>> mamba initialize >>>
-# !! Contents within this block are managed by 'mamba init' !!
-export MAMBA_EXE="/home/euler/bin/micromamba";
-export MAMBA_ROOT_PREFIX="/home/euler/micromamba";
-__mamba_setup="$('/home/euler/bin/micromamba' shell hook --shell bash --prefix '/home/euler/micromamba' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__mamba_setup"
-else
-    if [ -f "/home/euler/micromamba/etc/profile.d/mamba.sh" ]; then
-        . "/home/euler/micromamba/etc/profile.d/mamba.sh"
-    else
-        export PATH="/home/euler/micromamba/bin:$PATH"
+    # Unmask ^Q (, ^V etc.) (if required, see `stty -a`) to Quit nnn
+    # stty start undef
+    # stty stop undef
+    # stty lwrap undef
+    # stty lnext undef
+
+    nnn "$@"
+
+    if [ -f "$NNN_TMPFILE" ]; then
+            . "$NNN_TMPFILE"
+            rm -f "$NNN_TMPFILE" > /dev/null
     fi
-fi
-unset __mamba_setup
-# <<< mamba initialize <<<
-
-
-
-
-# nnn config
-export NNN_BMS='d:~/Downloads;u:/home/user/euler;g:~/Desktop/GT/;D:~/.config/dwm;m:~/Music;q:~/Desktop/GT/Spring 22/CS 4644;w:~/Desktop/GT/Spring 22/MATH 3236;e:~/Desktop/GT/Spring 22/MATH 6422;r:~/Desktop/GT/Spring 22/VIP'
-
-
-# BEGIN_KITTY_SHELL_INTEGRATION
-if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi
-# END_KITTY_SHELL_INTEGRATION
+}
