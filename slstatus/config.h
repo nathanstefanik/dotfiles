@@ -68,7 +68,7 @@ static const struct arg args[] = {
   { netspeed_tx,  "↑ %sB/s | ",     "enp7s0" }, 
   { run_command,  "%s ",            "cmus-remote -Q | grep 'tag title ' | sed 's/tag//g;s/title//g;s/[ \t]*//' | awk '{print}'" },
   { run_command,  "by %s | ",       "cmus-remote -Q | grep 'tag artist ' | sed 's/tag//g;s/artist//g;s/[ \t]*//' | awk '{print}'" },
-  { run_command,  "vol %s | ",      "pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( $SINK + 1 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,'" },
+  { run_command,  "vol %s | ",      "pamixer --get-volume | awk '{print}'" },
   { temp,         "cpu %s°C | ",    "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon1/temp1_input" },
   { temp,         "gpu %s°C | ",    "/dev/gpu_temp" },
   { datetime,     "%s ",            "%a %b %d %R" },
