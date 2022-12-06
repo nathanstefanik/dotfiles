@@ -30,7 +30,7 @@ color article            default   default
 
 browser linkhandler
 macro , open-in-browser
-macro v set browser "mpv" ; open-in-browser ; set browser linkhandler
+macro v set browser "setsid -f mpv --really-quiet --no-terminal" ; open-in-browser ; set browser linkhandler
 
 highlight all "---.*---" yellow
 highlight feedlist ".*(0/0))" black
