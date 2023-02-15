@@ -18,7 +18,8 @@
 !/mpv/
 !/bash/
 !/zathura/
-!/qBittorrent/
+!/qBittorrent/themes
+!/qBittorrent/qBittorrent.conf
 !/lf/
 !/helix/
 !pkglist.txt
