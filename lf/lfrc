@@ -18,6 +18,10 @@ cmd mkfile ${{
 	$EDITOR $ans
 }}
 
+# using trash-cli
+cmd trash ${{
+  trash-put "$f"
+}}
 
 # unarchive
 cmd unarchive ${{
@@ -28,6 +32,26 @@ cmd unarchive ${{
 		*.tar) tar -xcf "$f" ;;
 		*) echo "Unsupported format" ;;
 	esac
+}}
+
+# Trash bindings
+cmd trash ${{
+  files=$(printf "$fx" | tr '\n' ';')
+  while [ "$files" ]; do
+    file=${files%%;*}
+
+    trash-put "$(basename "$file")"
+    if [ "$files" = "$file" ]; then
+      files=''
+    else
+      files="${files#*;}"
+    fi
+  done
+}}
+
+# Restoring trash
+cmd restore_trash ${{
+  trash-restore
 }}
 
 # Bindings
@@ -46,6 +70,7 @@ map au unarchive
 
 # Basic Functions
 map . set hidden!
+map DD trash
 map p paste
 map x cut
 map y copy
@@ -54,6 +79,9 @@ map R reload
 map mf mkfile
 map md mkdir
 map C clear
+
+map dd trash
+map dr restore_trash
 
 # BOOKMARKS
 map gb cd ~/Books
