@@ -18,10 +18,6 @@ cmd mkfile ${{
 	$EDITOR $ans
 }}
 
-# put something in the trash bin
-cmd trash ${{
-	trash "$f"
-}}
 
 # unarchive
 cmd unarchive ${{
@@ -50,7 +46,6 @@ map au unarchive
 
 # Basic Functions
 map . set hidden!
-map DD trash
 map p paste
 map x cut
 map y copy
@@ -59,7 +54,6 @@ map R reload
 map mf mkfile
 map md mkdir
 map C clear
-map dd trash
 
 # BOOKMARKS
 map gb cd ~/Books
@@ -67,4 +61,4 @@ map gD cd ~/Downloads
 map gd cd ~/Desktop
 map gm cd ~/Music
 map gc cd ~/.config
-map gt cd ~/.Trash
+map gB cd /run/media/groth/BOX
