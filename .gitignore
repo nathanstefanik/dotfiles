@@ -19,9 +19,10 @@
 !/bash/
 !/zathura/
 !/qBittorrent/
-/qBittorrent/*
-!/qBittorrent/themes
-!/qBittorrent/qBittorrent.conf
+/qBittorrent/rss/
+/qBittorrent/categories.json
+/qBittorrent/qBittorrent-data.conf
+/qBittorrent/watched_folders.json
 !/lf/
 !/helix/
 !pkglist.txt
