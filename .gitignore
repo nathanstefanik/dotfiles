@@ -18,6 +18,8 @@
 !/mpv/
 !/bash/
 !/zathura/
+!/qBittorrent/
+/qBittorrent/*
 !/qBittorrent/themes
 !/qBittorrent/qBittorrent.conf
 !/lf/
