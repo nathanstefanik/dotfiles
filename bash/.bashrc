@@ -15,7 +15,7 @@ PS1='[\u@\h \W]\$ '
 
 SINK=$( pactl list short sinks | grep RUNNING | sed -e 's,^\([0-9][0-9]*\)[^0-9].*,\1,' | head -n 1 )
 BROWSER=firefox
-export EDITOR=helix
+export EDITOR=nvim
 
 lfcd () {
     tmp="$(mktemp)"

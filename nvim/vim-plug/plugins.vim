@@ -18,4 +18,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   " Snippets
   Plug 'honza/vim-snippets'
 
+  " File browsing
+  Plug 'preservim/nerdtree'
+
 call plug#end()
