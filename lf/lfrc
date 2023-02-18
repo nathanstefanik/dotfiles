@@ -90,3 +90,5 @@ map gd cd ~/Desktop
 map gm cd ~/Music
 map gc cd ~/.config
 map gB cd /run/media/groth/BOX
+map gG cd ~/.local/github
+map gf cd ~/.mozilla/firefox/l9jxfop2.arkenfox
