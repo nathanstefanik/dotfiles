@@ -1,5 +1,4 @@
 # Basic Settings
-set hidden true
 set ignorecase true
 
 # Custom Functions
@@ -59,7 +58,6 @@ cmd restore_trash ${{
 # Removing defaults
 map m
 map o
-map n
 map "'"
 map '"'
 map d
@@ -92,3 +90,4 @@ map gc cd ~/.config
 map gB cd /run/media/groth/BOX
 map gG cd ~/.local/github
 map gf cd ~/.mozilla/firefox/l9jxfop2.arkenfox
+map gr cd ~/Desktop/resume
