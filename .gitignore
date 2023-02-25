@@ -22,6 +22,7 @@
 /qBittorrent/rss/
 /qBittorrent/categories.json
 /qBittorrent/qBittorrent-data.conf
+/qBittorrent/lockfile
 /qBittorrent/watched_folders.json
 !/lf/
 !/helix/
