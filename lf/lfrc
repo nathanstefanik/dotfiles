@@ -63,7 +63,7 @@ map '"'
 map d
 
 # Custom keybindings
-map c $codium "$f"
+map v $codium "$f"
 map au unarchive
 
 # Basic Functions
@@ -76,7 +76,6 @@ map <enter> open
 map R reload
 map mf mkfile
 map md mkdir
-map C clear
 
 map dd trash
 map dr restore_trash
