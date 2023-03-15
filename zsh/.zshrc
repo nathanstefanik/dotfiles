@@ -103,6 +103,7 @@ compdef _directories md
 
 # Define aliases.
 alias tree='tree -a -I .git'
+alias mpv='mpv --ytdl=no'
 
 # Add flags to existing aliases.
 alias ls="${aliases[ls]:-ls} -A"

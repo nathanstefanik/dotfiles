@@ -48,6 +48,7 @@ otf-fira-mono
 pacman
 pacman-contrib
 pamixer
+paru
 patch
 pkgconf
 pulseaudio
@@ -86,7 +87,6 @@ xorg-server
 xorg-xinit
 xprintidle
 yarn
-yay
 yt-dlp
 zathura
 zathura-djvu
