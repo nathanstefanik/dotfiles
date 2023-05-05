@@ -1,7 +1,5 @@
 " set leader key
 let g:mapleader = "\<Space>"
-" set snippets folder
-let g:UltiSnipsSnippetDirectories=['~/.config/nvim/UltiSnips']
 " set vimtex pdf viewer
 let g:vimtex_view_method = 'zathura'
 " nerdtree
@@ -48,4 +46,3 @@ au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm al
 
 " You can't stop me
 cmap w!! w !sudo tee %
-
