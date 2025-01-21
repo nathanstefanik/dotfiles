@@ -1,13 +1,17 @@
 # Basic Settings
-set ignorecase true
-
-# Custom Functions
+set ignorecase true # ignore capital vs lowercase
+set info size:time # default info to be more descriptive
+set infotimefmtnew '2006/01/02 15:04:05'
+set infotimefmtold '2006/01/02 15:04:05'
+set relativenumber # relative line number for cursor
+set ratios 2:3:4 # ratio of column widths
+set period 1 # freq in seconds for directory update
 
 # make a new directory
 cmd mkdir ${{
 	printf "Directory Name: "
 	read ans
-	mkdir $ans
+	mkdir "$ans"
 }}
 
 # make a new file
@@ -17,9 +21,13 @@ cmd mkfile ${{
 	$EDITOR $ans
 }}
 
-# using trash-cli
+# put something in the trash bin
 cmd trash ${{
-  trash-put "$f"
+	trash "$f"
+}}
+
+cmd rmrf ${{
+	rm -rf "$f"
 }}
 
 # unarchive
@@ -33,26 +41,6 @@ cmd unarchive ${{
 	esac
 }}
 
-# Trash bindings
-cmd trash ${{
-  files=$(printf "$fx" | tr '\n' ';')
-  while [ "$files" ]; do
-    file=${files%%;*}
-
-    trash-put "$(basename "$file")"
-    if [ "$files" = "$file" ]; then
-      files=''
-    else
-      files="${files#*;}"
-    fi
-  done
-}}
-
-# Restoring trash
-cmd restore_trash ${{
-  trash-restore
-}}
-
 # Bindings
 
 # Removing defaults
@@ -63,12 +51,14 @@ map '"'
 map d
 
 # Custom keybindings
-map v $codium "$f"
+map C $codium "$f"
 map au unarchive
+map v $mpv "$f"
+map o $zathura "$f"
+map dD rmrf
 
 # Basic Functions
 map . set hidden!
-map DD trash
 map p paste
 map x cut
 map y copy
@@ -76,17 +66,19 @@ map <enter> open
 map R reload
 map mf mkfile
 map md mkdir
-
 map dd trash
-map dr restore_trash
 
 # BOOKMARKS
 map gb cd ~/Books
 map gD cd ~/Downloads
 map gd cd ~/Desktop
 map gm cd ~/Music
+map gv cd ~/Movies
+map gG cd ~/github
 map gc cd ~/.config
-map gB cd /run/media/groth/BOX
-map gG cd ~/.local/github
-map gf cd ~/.mozilla/firefox/l9jxfop2.arkenfox
 map gr cd ~/Desktop/resume
+map gB cd /Volumes/BOX
+map gN cd /Volumes/BOX2
+map gz cd /Volumes/ZARKEY
+map gt cd ~/torrent_vault
+map gf cd /Users/zariski/Library/Application\ Support/Firefox/Profiles/e9jj1int.default
