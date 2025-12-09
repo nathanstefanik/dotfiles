@@ -26,12 +26,15 @@ vim.o.smartindent = true -- Automatically indent new lines
 vim.o.wrap = false -- Disable line wrapping
 vim.o.cursorline = true -- Highlight the current line
 vim.o.termguicolors = true -- Enable 24-bit RGB colors
+vim.o.clipboard = "unnamedplus" -- Copy paste bewteen neovim and everything else
 
 -- Syntax highlighting and filetype plugins
 vim.cmd('syntax enable')
 vim.cmd('filetype plugin indent on')
 
-
 -- Theme
 vim.o.background = "dark"
 vim.cmd([[colorscheme gruvbox]])
+
+-- vimtex
+vim.g.vimtex_view_general_viewer = 'zathura'

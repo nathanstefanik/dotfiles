@@ -1,24 +1,27 @@
 call plug#begin('~/.config/nvim/autoload/plugged')
 
-  " Gruvbox theme
-  Plug 'morhetz/gruvbox'
+	" autocomplete
+	"Plug 'Shougo/deoplete.nvim'
+	"Plug 'zchee/deoplete-clang'
 
-  " Autopairs for '(' '[' '{'
-  Plug 'jiangmiao/auto-pairs'
+	" Better syntax support
+	Plug 'sheerun/vim-polyglot'
 
-  " LaTeX
-  Plug 'lervag/vimtex'
+	" File explorer
+	"Plug 'scrooloose/NERDTree'
+	Plug 'nvim-tree/nvim-tree.lua'
 
-  " Completion framework
-  Plug 'Shougo/deoplete.nvim'
+	" Auto pairs for '(' '[' '{'
+	Plug 'jiangmiao/auto-pairs'
 
-  " Snippet engine
-  Plug 'SirVer/ultisnips'
+	" LaTeX plugin for neovim
+	Plug 'lervag/vimtex'
 
-  " Snippets
-  Plug 'honza/vim-snippets'
+	" snippet engine and snippets
+	"Plug 'SirVer/ultisnips' 
+	"Plug 'honza/vim-snippets'
 
-  " File browsing
-  Plug 'preservim/nerdtree'
+	" gruvbox theme
+	Plug 'morhetz/gruvbox'
 
 call plug#end()
