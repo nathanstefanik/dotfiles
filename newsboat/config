@@ -30,7 +30,8 @@ color article            default   default
 
 browser linkhandler
 macro , open-in-browser
-macro v set browser "setsid -f mpv --ytdl=no --really-quiet --no-terminal" ; open-in-browser ; set browser linkhandler
+macro v set browser "setsid -f mpv --really-quiet --no-terminal --profile=fast" ; open-in-browser ; set browser firefox
+#macro v set browser "setsid -f iina --really-quiet --no-terminal" ; open-in-browser ; set browser firefox
 
 highlight all "---.*---" yellow
 highlight feedlist ".*(0/0))" black
