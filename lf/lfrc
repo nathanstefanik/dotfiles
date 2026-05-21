@@ -7,6 +7,16 @@ set relativenumber # relative line number for cursor
 set ratios 2:3:4 # ratio of column widths
 set period 1 # freq in seconds for directory update
 
+# copy file contents into clipboard
+cmd yankfile ${{
+	pbcopy < "$f"
+}}
+
+# copy file path into clipboard
+cmd yankpath ${{
+	printf '%s' "$f" | pbcopy
+}}
+
 # make a new directory
 cmd mkdir ${{
 	printf "Directory Name: "
@@ -51,11 +61,13 @@ map '"'
 map d
 
 # Custom keybindings
-map C $codium "$f"
+map C  $codium "$f"
 map au unarchive
-map v $mpv "$f"
-map o $zathura "$f"
+map v  $iina "$f"
+map o  $zathura "$f"
 map dD rmrf
+map Yp  yankpath 
+map Yf yankfile
 
 # Basic Functions
 map . set hidden!
@@ -69,16 +81,13 @@ map md mkdir
 map dd trash
 
 # BOOKMARKS
-map gb cd ~/Books
 map gD cd ~/Downloads
 map gd cd ~/Desktop
-map gm cd ~/Music
-map gv cd ~/Movies
-map gG cd ~/github
+map gG cd ~/Documents/GitHub
 map gc cd ~/.config
-map gr cd ~/Desktop/resume
-map gB cd /Volumes/BOX
 map gN cd /Volumes/BOX2
-map gz cd /Volumes/ZARKEY
-map gt cd ~/torrent_vault
-map gf cd /Users/zariski/Library/Application\ Support/Firefox/Profiles/e9jj1int.default
+map gp cd /Volumes/BOX/images/photos
+map gV cd /Volumes
+map gs cd ~/Documents/Github/seatfactor-forecasting
+map gr cd ~/Documents/Github/rm-cp
+map gb cd /Users/NS04760/Documents/GitHub/rm-cp/restructure_q1/src/dags/booking_curves/tasks
