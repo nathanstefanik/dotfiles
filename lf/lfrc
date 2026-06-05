@@ -31,6 +31,11 @@ cmd mkfile ${{
 	$EDITOR $ans
 }}
 
+# open skim reader
+cmd skim &{{
+	open -a Skim "$f"
+}}
+
 # put something in the trash bin
 cmd trash ${{
 	trash "$f"
@@ -64,7 +69,7 @@ map d
 map C  $codium "$f"
 map au unarchive
 map v  $iina "$f"
-map o  $zathura "$f"
+map o  skim "$f"
 map dD rmrf
 map Yp  yankpath 
 map Yf yankfile
@@ -81,13 +86,14 @@ map md mkdir
 map dd trash
 
 # BOOKMARKS
+map gb cd ~/books
 map gD cd ~/Downloads
 map gd cd ~/Desktop
-map gG cd ~/Documents/GitHub
+map gG cd ~/GitHub
 map gc cd ~/.config
 map gN cd /Volumes/BOX2
 map gp cd /Volumes/BOX/images/photos
 map gV cd /Volumes
-map gs cd ~/Documents/Github/seatfactor-forecasting
-map gr cd ~/Documents/Github/rm-cp
-map gb cd /Users/NS04760/Documents/GitHub/rm-cp/restructure_q1/src/dags/booking_curves/tasks
+map gv cd ~/Movies
+map ge cd /Volumes/BOX/images/photos/exported
+map gz cd /Volumes/ZARKEY
